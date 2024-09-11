@@ -7,7 +7,6 @@ public class Movebytouch : MonoBehaviour
 {
     Rigidbody2D bird;
     public float jump;
-    public float tjump;
     Transform tb;
     Animator ani;
 
@@ -36,40 +35,7 @@ public class Movebytouch : MonoBehaviour
             tb.Rotate(0,0,-20);
             ani.SetBool("isjumping",false);
         }
-           
-
-
-        //TOUCH
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);    
-
-            if (touch.phase == TouchPhase.Began) // comparison
-            {
-                bird.AddForce(Vector2.up * tjump, ForceMode2D.Impulse);
-                //tb.Rotate(0,0,20);
-                ani.SetBool("isjumping",true);
-            }
-            if (touch.phase == TouchPhase.Ended)
-            {
-                //tb.Rotate(0,0,-20);
-                ani.SetBool("isjumping",false);
-            }
-        }
-
-
-            //MOUSE
-            if(Input.GetMouseButtonDown(0))
-            {
-              bird.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
-              tb.Rotate(0,0,20);
-              ani.SetBool("isjumping",true); 
-            }
-            if(Input.GetMouseButtonUp(0))
-            {
-             tb.Rotate(0,0,-20);
-            ani.SetBool("isjumping",false);
-            }        
+                  
     }
 }
 
